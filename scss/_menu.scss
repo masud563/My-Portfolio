@@ -1,0 +1,90 @@
+//Menu Button
+.menu-btn {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    cursor: pointer;
+    @include easeOut;
+
+    .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #fff;
+
+    }
+
+        //Rotate Into X with Menu Lines
+        &.close {
+            transform: rotate(180deg);
+            z-index: 4;
+
+            .btn-line {
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(7px,-6px);
+                }
+            }
+        }
+}
+
+.menu {
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    opacity: 0.9;
+
+    
+    &.show {
+        visibility: visible;
+        
+    }
+
+    &-branding , &-nav{
+        width: 50%;
+        display: flex;
+        flex-flow:column  wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        list-style: none;
+        overflow:hidden;
+
+    }
+    &-branding {
+        background: darken($primary-color,5);
+        transform:translate3d(0,100%,0);
+        @include easeOut;
+
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+
+        .portrait {
+            display: inline-block;
+            width: 250px;
+            height: 250px;
+            border-style: solid;
+            border-radius: 50%;
+            border-color: $secondary-color;
+            overflow: hidden;
+        }
+    }
+
+    &-nav {
+        background: darken($primary-color,5);
+        transform:translate3d(0,-100%,0);
+        @include easeOut;
+
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+    }
+}
