@@ -37,7 +37,6 @@
     visibility: hidden;
     position: fixed;
     width: 100%;
-    opacity: 0.9;
 
     
     &.show {
@@ -59,7 +58,7 @@
 
     }
     &-branding {
-        background: darken($primary-color,5);
+        background: #fff;
         transform:translate3d(0,100%,0);
         @include easeOut;
 
@@ -87,4 +86,31 @@
             transform: translate3d(0,0,0);
         }
     }
+
+    .nav-item {
+        font-size: 3rem;
+        position: relative;
+        transform: translate3d(600px,50%,0);
+        @include easeOut;
+        
+       a.current {
+           color: $secondary-color;
+
+       }
+
+       a:hover {
+           color: $secondary-color;
+       }
+
+       &.show {
+           transform: translate3d(0,0,0);
+       }
+    }
+    @for $x from 1 through 4 {
+        .nav-item:nth-child(#{$x}) {
+            transition-delay: $x*0.1s;
+        }
+    }
 }
+
+
