@@ -10,7 +10,7 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
 
     }
 
@@ -92,6 +92,10 @@
         position: relative;
         transform: translate3d(600px,50%,0);
         @include easeOut;
+
+       a {
+           color: set-text-color($primary-color);
+       } 
         
        a.current {
            color: $secondary-color;
@@ -104,7 +108,7 @@
 
        &.show {
            transform: translate3d(0,0,0);
-           @include easeOut;
+        //    @include easeOut;
        }
     }
     @for $x from 1 through 4 {
