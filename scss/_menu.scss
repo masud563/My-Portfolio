@@ -104,6 +104,7 @@
 
        &.show {
            transform: translate3d(0,0,0);
+           @include easeOut;
        }
     }
     @for $x from 1 through 4 {
