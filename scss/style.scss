@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 100%;
 }
 
 body {
@@ -27,18 +27,18 @@ h1,h2,h3 {
     font-weight: 400;
     
     &.lg-heading {
-        font-size: 10rem;
+        font-size: 7rem;
     }
     &.sm-heading {
-        font-size: 3.3rem;
-        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 1.4rem;
         padding: 0.2rem 1rem;
         background: rgba(lighten($primary-color, 0.2),0.5); 
     }
 }
 
 a {
-    color: #fff;
+    color: set-text-color($primary-color);
     text-decoration: none;
 
 }
@@ -54,7 +54,7 @@ header {
 }
 
 main{
-    padding: 4rem;
+    padding: 2.8rem;
     // height: 100%;
     min-height: calc(100vh-6rem);
 
@@ -83,43 +83,39 @@ main{
 .about-info {
     margin-top: 4rem;
     display: grid;
-    gap: 3rem;
+    gap: 1rem;
     grid-template-areas: 
     'bio-image bio bio'
-    'job1 job2 job3';
+    'job-1 job-2 job-3';
     grid-template-columns: repeat(3,1fr);
 
     .bio-image {
         grid-area: bio-image;
-        width: 25rem;
-        height: 25rem;
+        width: 16rem;
+        height: 16rem;
         border: $secondary-color 3px solid ;
         border-radius: 50%;
         overflow: hidden;            
     
         img {
-            width: 25rem;
+            width: 16rem;
         }
     }
     
     .bio {
         grid-area: bio;
-        font-size: 1.6rem;
     }
     
     .job-1 {
-        grid-area: job1;
-        font-size: 1.6rem;
+        grid-area: job-1;
     }
     
     .job-2 {
-        grid-area: job2;
-        font-size: 1.6rem;
+        grid-area: job-2;
     }
     
     .job-3 {
-        grid-area: job3;
-        font-size: 1.6rem;
+        grid-area: job-3;
     }
     
     .job { 
@@ -129,6 +125,77 @@ main{
         border-radius: 1rem;   
         padding: 1rem;
     }
+}
+
+//My work
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 1rem;
+    row-gap: 2rem;
+    
+
+    img {
+        width: 100%;
+        border: 3px $secondary-color solid;
+
+        &:hover {
+            opacity: 0.5;
+            border-color: #fff;
+            // border-width: 6px;
+            @include easeOut;
+        }
+    }
+
+}
+
+//Contact Page
+.boxes {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items:start;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+
+    div {
+        font-size: 2rem;
+        border: 3px $secondary-color solid;
+        margin-bottom: 3rem;
+        padding: 1.5rem 2.5rem;
+        @include easeOut;
+
+        &:hover {
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color:set-text-color($secondary-color);
+            
+            span {
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+
+//Button Styles
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.4rem;
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+
+    &:hover {
+        background: lighten($secondary-color,25);
+    }
+}
+
+.btn-light {
+    @extend .btn;
+}
+
+.btn-dark {
+    @extend .btn;
 }
 
 #main-footer {
